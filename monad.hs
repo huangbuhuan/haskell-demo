@@ -12,3 +12,8 @@ getUser "good connection" = "good user"
 
 getEmail :: User -> Email
 getEmail "good user" = "good email"
+
+fetchEmail :: UrlStr -> Maybe Email
+fetchEmail urlStr = case getConn urlStr of
+                    Just conn -> Just ((getEmail . getUser) conn)
+                    Nothing -> Nothing
