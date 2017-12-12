@@ -17,3 +17,7 @@ fetchEmail :: UrlStr -> Maybe Email
 fetchEmail urlStr = case getConn urlStr of
                     Just conn -> Just ((getEmail . getUser) conn)
                     Nothing -> Nothing
+
+bind :: (a -> Maybe b) -> Maybe a -> Maybe b
+bind f Nothing = Nothing
+bind f (Just v) = f v 
