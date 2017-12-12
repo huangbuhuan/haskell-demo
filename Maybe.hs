@@ -1,0 +1,1 @@
+data IntMaybe = INothing | Ijust Int
