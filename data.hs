@@ -25,3 +25,9 @@ dotProd :: (Num a) => Vector a -> Vector a -> a
 vmult :: (Num a) => Vector a -> a -> Vector a
 (Vector i j k) `vmult` m = Vector (i*m) (j*m) (k*m)
  
+data Either a b = Left a | Right b deriving (Eq, Ord, Read, Show)
+
+{- 递归数据结构 Cons表示列表中:的作用。而:本身就是值构造器，
+会取一个值和另外一个列表作为参数，返回一个新的列表 -}
+data List a = Empty | Cons { listHead :: a, listTail :: List a}
+     deriving (Show, Read, Eq, Ord)
